@@ -1,5 +1,5 @@
-// context/HomeContext.tsx
 'use client';
+
 import { createContext, ReactNode, useState } from 'react';
 
 type HomeContextData = {
@@ -22,18 +22,18 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
 
   const incremento = () => {
     if (playing) {
-      setContador(contador + 1);
+      setContador((prev) => prev + 1);
     }
   };
 
   const decremento = () => {
-    if (playing && contador > 0) { // Verifica se o contador é maior que zero
-      setContador(contador - 1);
+    if (playing && contador > 0) {
+      setContador((prev) => prev - 1);
     }
   };
 
   const togglePlaying = () => {
-    setPlaying(!playing);
+    setPlaying((prev) => !prev);
   };
 
   return (
